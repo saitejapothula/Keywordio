@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Show Book</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container" style="width:70%">
+<table class="table" border="3px;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Author</th>
+        <th scope="col">Release Date</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in obj %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.Name}}</td>
+        <td>{{i.Price}}</td>
+        <td>{{i.Author}}</td>
+        <td>{{i.Release_date}}</td>
+        <td ><button class="btn btn-warning "><a href="{% url 'updateurl' i.id %}">Update</a></button></td>
+        <td><button class="btn btn-danger "><a href="{% url 'deleteurl' i.id %}">Delete</a></button></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  
+</div>
+{% endblock %}

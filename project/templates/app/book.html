@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Book Page</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container" style="width:50%;">
+    <div class="jumbotron">
+        <center><h2 style="color:rgb(26, 0, 128);">Add Book</h2></center>
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Add Book" class="btn btn-success">
+            
+        </form>
+        <button class="btn btn-warning float-right"><a href="{% url 'bookurl' %}">Reset</a></button>
+    </div>
+</div>
+{% endblock %}
